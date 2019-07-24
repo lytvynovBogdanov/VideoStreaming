@@ -10,4 +10,5 @@ import Foundation
 
 struct VideoStream {
     let name: String
+    let url: URL?
 }

@@ -12,7 +12,7 @@
         <!--Video Streaming-->
         <scene sceneID="sHQ-5h-uES">
             <objects>
-                <tableViewController id="8Vc-Ek-v6E" customClass="StreamingTableViewController" customModule="VideoStreaming" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="8Vc-Ek-v6E" customClass="StreamingOverviewController" customModule="VideoStreaming" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aY4-Wm-2ne">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,11 +11,12 @@
 		494F167B22E888640021BFB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F167922E888640021BFB1 /* Main.storyboard */; };
 		494F167D22E888690021BFB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494F167C22E888690021BFB1 /* Assets.xcassets */; };
 		494F168022E888690021BFB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F167E22E888690021BFB1 /* LaunchScreen.storyboard */; };
-		494F168A22E889890021BFB1 /* StreamingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168922E889890021BFB1 /* StreamingTableViewController.swift */; };
-		494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */; };
-		494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */; };
+		494F168A22E889890021BFB1 /* StreamingOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168922E889890021BFB1 /* StreamingOverviewController.swift */; };
+		494F168C22E889A50021BFB1 /* StreamingOverviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168B22E889A50021BFB1 /* StreamingOverviewDataSource.swift */; };
+		494F168E22E889D70021BFB1 /* StreamingOverviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168D22E889D70021BFB1 /* StreamingOverviewModel.swift */; };
 		494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169122E88DAD0021BFB1 /* VideoStream.swift */; };
 		494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169622E89E3E0021BFB1 /* StreamManager.swift */; };
+		494F169922E8A1130021BFB1 /* StreamingOverviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169822E8A1130021BFB1 /* StreamingOverviewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,11 +26,12 @@
 		494F167C22E888690021BFB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		494F167F22E888690021BFB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		494F168122E888690021BFB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		494F168922E889890021BFB1 /* StreamingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewController.swift; sourceTree = "<group>"; };
-		494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewDataSource.swift; sourceTree = "<group>"; };
-		494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewModel.swift; sourceTree = "<group>"; };
+		494F168922E889890021BFB1 /* StreamingOverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingOverviewController.swift; sourceTree = "<group>"; };
+		494F168B22E889A50021BFB1 /* StreamingOverviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingOverviewDataSource.swift; sourceTree = "<group>"; };
+		494F168D22E889D70021BFB1 /* StreamingOverviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingOverviewModel.swift; sourceTree = "<group>"; };
 		494F169122E88DAD0021BFB1 /* VideoStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStream.swift; sourceTree = "<group>"; };
 		494F169622E89E3E0021BFB1 /* StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManager.swift; sourceTree = "<group>"; };
+		494F169822E8A1130021BFB1 /* StreamingOverviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingOverviewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +88,10 @@
 		494F168822E889430021BFB1 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
-				494F168922E889890021BFB1 /* StreamingTableViewController.swift */,
-				494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */,
-				494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */,
+				494F168922E889890021BFB1 /* StreamingOverviewController.swift */,
+				494F168B22E889A50021BFB1 /* StreamingOverviewDataSource.swift */,
+				494F169822E8A1130021BFB1 /* StreamingOverviewDelegate.swift */,
+				494F168D22E889D70021BFB1 /* StreamingOverviewModel.swift */,
 			);
 			path = Overview;
 			sourceTree = "<group>";
@@ -203,12 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494F168A22E889890021BFB1 /* StreamingTableViewController.swift in Sources */,
+				494F168A22E889890021BFB1 /* StreamingOverviewController.swift in Sources */,
 				494F167622E888640021BFB1 /* AppDelegate.swift in Sources */,
 				494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */,
 				494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */,
-				494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */,
-				494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */,
+				494F169922E8A1130021BFB1 /* StreamingOverviewDelegate.swift in Sources */,
+				494F168E22E889D70021BFB1 /* StreamingOverviewModel.swift in Sources */,
+				494F168C22E889A50021BFB1 /* StreamingOverviewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

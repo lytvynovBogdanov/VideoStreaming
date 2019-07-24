@@ -1,5 +1,5 @@
 //
-//  StreamingTableViewDataSource.swift
+//  StreamingOverviewDataSource.swift
 //  VideoStreaming
 //
 //  Created by Oleksii Lytvynov-Bohdanov on 7/24/19.
@@ -8,18 +8,22 @@
 
 import UIKit
 
-extension StreamingTableViewController {
+extension StreamingOverviewController {
     
     private static let cellIdentifier = "cell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel.streems.count
+        return viewModel.streamCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StreamingTableViewController.cellIdentifier, for: indexPath)
-        cell.textLabel?.text = viewModel.streems[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: StreamingOverviewController.cellIdentifier, for: indexPath)
+        guard let stream = viewModel.stream(at: indexPath) else {
+            assertionFailure()
+            return UITableViewCell()
+        }
+        cell.textLabel?.text = stream.name
         
         return cell
     }
