@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		494F167622E888640021BFB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F167522E888640021BFB1 /* AppDelegate.swift */; };
-		494F167822E888640021BFB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F167722E888640021BFB1 /* ViewController.swift */; };
 		494F167B22E888640021BFB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F167922E888640021BFB1 /* Main.storyboard */; };
 		494F167D22E888690021BFB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494F167C22E888690021BFB1 /* Assets.xcassets */; };
 		494F168022E888690021BFB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F167E22E888690021BFB1 /* LaunchScreen.storyboard */; };
+		494F168A22E889890021BFB1 /* StreamingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168922E889890021BFB1 /* StreamingTableViewController.swift */; };
+		494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */; };
+		494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */; };
+		494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169122E88DAD0021BFB1 /* VideoStream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		494F167222E888640021BFB1 /* VideoStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494F167522E888640021BFB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		494F167722E888640021BFB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		494F167A22E888640021BFB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		494F167C22E888690021BFB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		494F167F22E888690021BFB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		494F168122E888690021BFB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494F168922E889890021BFB1 /* StreamingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewController.swift; sourceTree = "<group>"; };
+		494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewDataSource.swift; sourceTree = "<group>"; };
+		494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewModel.swift; sourceTree = "<group>"; };
+		494F169122E88DAD0021BFB1 /* VideoStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStream.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,72 @@
 			isa = PBXGroup;
 			children = (
 				494F167522E888640021BFB1 /* AppDelegate.swift */,
-				494F167722E888640021BFB1 /* ViewController.swift */,
+				494F168F22E88D5B0021BFB1 /* Extensions */,
+				494F169322E88ED70021BFB1 /* Managers */,
+				494F169022E88D780021BFB1 /* Models */,
+				494F168722E888FA0021BFB1 /* ViewControllers */,
 				494F167922E888640021BFB1 /* Main.storyboard */,
 				494F167C22E888690021BFB1 /* Assets.xcassets */,
 				494F167E22E888690021BFB1 /* LaunchScreen.storyboard */,
 				494F168122E888690021BFB1 /* Info.plist */,
 			);
 			path = VideoStreaming;
+			sourceTree = "<group>";
+		};
+		494F168722E888FA0021BFB1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				494F169522E88F550021BFB1 /* Streaming */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		494F168822E889430021BFB1 /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				494F168922E889890021BFB1 /* StreamingTableViewController.swift */,
+				494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */,
+				494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		494F168F22E88D5B0021BFB1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		494F169022E88D780021BFB1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				494F169122E88DAD0021BFB1 /* VideoStream.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		494F169322E88ED70021BFB1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		494F169422E88F180021BFB1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		494F169522E88F550021BFB1 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				494F169422E88F180021BFB1 /* Detail */,
+				494F168822E889430021BFB1 /* Overview */,
+			);
+			path = Streaming;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +200,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				494F167822E888640021BFB1 /* ViewController.swift in Sources */,
+				494F168A22E889890021BFB1 /* StreamingTableViewController.swift in Sources */,
 				494F167622E888640021BFB1 /* AppDelegate.swift in Sources */,
+				494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */,
+				494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */,
+				494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
