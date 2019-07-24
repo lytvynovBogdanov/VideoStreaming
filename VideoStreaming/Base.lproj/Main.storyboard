@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Video Streaming-->
         <scene sceneID="sHQ-5h-uES">
             <objects>
                 <tableViewController id="8Vc-Ek-v6E" customClass="StreamingTableViewController" customModule="VideoStreaming" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="8Vc-Ek-v6E" id="UsB-u6-lNu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="eSw-q5-CsH"/>
+                    <navigationItem key="navigationItem" title="Video Streaming" id="eSw-q5-CsH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mmz-41-h8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

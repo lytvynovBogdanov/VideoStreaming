@@ -10,6 +10,6 @@ import Foundation
 
 struct StreamingTableViewModel {
     
-    let streems: [VideoStream]
+    let streems: [VideoStream] = StreamManager.providers
     
 }

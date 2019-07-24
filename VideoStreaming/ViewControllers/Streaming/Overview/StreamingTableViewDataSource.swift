@@ -9,20 +9,17 @@
 import UIKit
 
 extension StreamingTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        return 0
-    }
+    
+    private static let cellIdentifier = "cell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return viewModel.streems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-        
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: StreamingTableViewController.cellIdentifier, for: indexPath)
+        cell.textLabel?.text = viewModel.streems[indexPath.row].name
         
         return cell
     }

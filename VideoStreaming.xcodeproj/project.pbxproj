@@ -15,6 +15,7 @@
 		494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */; };
 		494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */; };
 		494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169122E88DAD0021BFB1 /* VideoStream.swift */; };
+		494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169622E89E3E0021BFB1 /* StreamManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		494F168B22E889A50021BFB1 /* StreamingTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewDataSource.swift; sourceTree = "<group>"; };
 		494F168D22E889D70021BFB1 /* StreamingTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingTableViewModel.swift; sourceTree = "<group>"; };
 		494F169122E88DAD0021BFB1 /* VideoStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoStream.swift; sourceTree = "<group>"; };
+		494F169622E89E3E0021BFB1 /* StreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		494F169322E88ED70021BFB1 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				494F169622E89E3E0021BFB1 /* StreamManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				494F168A22E889890021BFB1 /* StreamingTableViewController.swift in Sources */,
 				494F167622E888640021BFB1 /* AppDelegate.swift in Sources */,
 				494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */,
+				494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */,
 				494F168E22E889D70021BFB1 /* StreamingTableViewModel.swift in Sources */,
 				494F168C22E889A50021BFB1 /* StreamingTableViewDataSource.swift in Sources */,
 			);
