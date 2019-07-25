@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol DefaultPlayerMenuProtocol {
+protocol DefaultPlayerMenuDelegate: class {
     func play()
     func pause()
-    func sliderMoved()
+    func sliderChanged()
     func settingsPressed()
 }
 
@@ -34,6 +34,8 @@ class DefaultPlayerMenu: UIView {
     
     @IBOutlet weak var progressSlider: UISlider!
     
+    weak var delegate: DefaultPlayerMenuDelegate?
+    
     // MARK: -
     // MARK: private properties
     
@@ -53,8 +55,10 @@ class DefaultPlayerMenu: UIView {
         didSet {
             if currewntActionState == .play {
                 playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
+                delegate?.play()
             } else if currewntActionState == .pause {
                 playPauseButton.setImage(UIImage(assetIdentifier: .pause), for: .normal)
+                delegate?.pause()
             } else {
                 assertionFailure()
             }
@@ -76,10 +80,16 @@ class DefaultPlayerMenu: UIView {
     // MARK: -
     // MARK: actions
     
-    @IBAction private func playPausePressed(_ sender: UIButton) {
+    @IBAction private func playPausePressed() {
         currewntActionState = currewntActionState == .play ? .pause : .play
         
     }
     
-
+    @IBAction func settingsButtonPressed() {
+        delegate?.settingsPressed()
+    }
+    
+    @IBAction func progressSliderChanged() {
+        delegate?.sliderChanged()
+    }
 }

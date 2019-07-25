@@ -35,6 +35,9 @@
                 </button>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nrw-Ij-WmH">
                     <rect key="frame" x="78" y="15" width="258" height="31"/>
+                    <connections>
+                        <action selector="progressSliderChanged" destination="-1" eventType="valueChanged" id="If6-Xc-roi"/>
+                    </connections>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGt-41-R0Y">
                     <rect key="frame" x="354" y="10" width="40" height="40"/>
@@ -43,6 +46,9 @@
                         <constraint firstAttribute="height" constant="40" id="hJj-rc-cCi"/>
                     </constraints>
                     <state key="normal" image="Settings"/>
+                    <connections>
+                        <action selector="settingsButtonPressed" destination="-1" eventType="touchUpInside" id="yQq-n0-wAv"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
