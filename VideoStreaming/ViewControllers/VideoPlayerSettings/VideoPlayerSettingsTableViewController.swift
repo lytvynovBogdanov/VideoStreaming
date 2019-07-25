@@ -8,9 +8,16 @@
 
 import UIKit
 
+protocol VideoPlayerSettingsDelegate: class {
+    func audioSelected(name: String)
+    func subtitleSelected(name: String)
+}
+
+
 class VideoPlayerSettingsTableViewController: UITableViewController {
     
     var viewModel: VideoPlayerSettingsTableViewModel
+    weak var delegate: VideoPlayerSettingsDelegate?
     
     init(_ viewModel: VideoPlayerSettingsTableViewModel) {
         self.viewModel = viewModel

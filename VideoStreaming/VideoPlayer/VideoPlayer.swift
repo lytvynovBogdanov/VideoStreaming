@@ -53,13 +53,17 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
         let videoPlayerSettingsTableViewModel = VideoPlayerSettingsTableViewModel(audios: audios, subtitles: subtitles)
         let videoPlayerSettingsTableViewController = VideoPlayerSettingsTableViewController.init(videoPlayerSettingsTableViewModel)
         owner?.navigationController?.pushViewController(videoPlayerSettingsTableViewController, animated: true)
+        videoPlayerSettingsTableViewController.delegate = self
         
-        
-        // Get selected track displayName
-        let selectedSubtitle = viewModel.player.currentItem?.selected(type: .audio)
-        // Select track with displayName
-        guard let name = subtitles?.last else { return }
-        let success = viewModel.player.currentItem?.select(type: .audio, name: name)
-        
+    }
+}
+
+extension VideoPlayer: VideoPlayerSettingsDelegate {
+    func audioSelected(name: String) {
+        _ = viewModel.player.currentItem?.select(type: .audio, name: name)
+    }
+    
+    func subtitleSelected(name: String) {
+        _ = viewModel.player.currentItem?.select(type: .subtitle, name: name)
     }
 }

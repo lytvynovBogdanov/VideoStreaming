@@ -17,7 +17,7 @@ extension VideoPlayerSettingsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch viewModel.sections[section] {
         case .audio:
-            return viewModel.audios.count
+            return viewModel.audio.count
         case .subtitle:
             return viewModel.subtitles.count
         }
@@ -37,7 +37,7 @@ extension VideoPlayerSettingsTableViewController {
         
         switch viewModel.sections[indexPath.section]  {
         case .audio:
-            cell.textLabel?.text = viewModel.audios[indexPath.row]
+            cell.textLabel?.text = viewModel.audio[indexPath.row]
         case .subtitle:
             cell.textLabel?.text = viewModel.subtitles[indexPath.row]
         }

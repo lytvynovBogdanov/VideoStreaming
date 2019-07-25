@@ -10,16 +10,16 @@ import Foundation
 import AVFoundation
 
 struct VideoPlayerSettingsTableViewModel {
-    let audios: [String]
+    let audio: [String]
     let subtitles: [String]
     let sections: [AVPlayerItem.TrackType]
     
     init(audios: [String]?, subtitles: [String]?) {
-        self.audios = audios ?? []
+        self.audio = audios ?? []
         self.subtitles = subtitles ?? []
         
         var sections = [AVPlayerItem.TrackType]()
-        if self.audios.count > 0 {
+        if self.audio.count > 0 {
             sections.append(.audio)
         }
         if self.subtitles.count > 0 {
