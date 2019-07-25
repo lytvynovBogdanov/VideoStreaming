@@ -54,10 +54,10 @@ final class DefaultPlayerMenu: UIView {
     private var currewntActionState: ActionState? {
         didSet {
             if currewntActionState == .play {
-                playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
+                playPauseButton.setImage(UIImage(assetIdentifier: .pause), for: .normal)
                 delegate?.play()
             } else if currewntActionState == .pause {
-                playPauseButton.setImage(UIImage(assetIdentifier: .pause), for: .normal)
+                playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
                 delegate?.pause()
             } else {
                 assertionFailure()
@@ -67,15 +67,9 @@ final class DefaultPlayerMenu: UIView {
     
     // MARK: -
     // MARK: Init
-    
-//    override init(frame: CGRect) {
-//        currewntActionState = .play
-//        super.init(frame: frame)
-//    }
-//
     override func awakeFromNib() {
         super.awakeFromNib()
-        currewntActionState = .play
+        currewntActionState = .pause
     }
     
     // MARK: -

@@ -22,6 +22,8 @@ class StreamingDetailViewController: UIViewController {
         playerView = DefaultPlayerView(viewModel: defaultPlayerViewModel)
         
         super.init(nibName: nil, bundle: nil)
+        
+        playerMenu.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
