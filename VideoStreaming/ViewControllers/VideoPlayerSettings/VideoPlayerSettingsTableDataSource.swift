@@ -23,6 +23,15 @@ extension VideoPlayerSettingsTableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch viewModel.sections[section] {
+        case .audio:
+            return "Audio"
+        case .subtitle:
+            return "Subtitles"
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoPlayerSettingsTableViewController.classString, for: indexPath)
         

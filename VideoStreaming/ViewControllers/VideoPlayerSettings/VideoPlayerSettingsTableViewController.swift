@@ -10,11 +10,21 @@ import UIKit
 
 class VideoPlayerSettingsTableViewController: UITableViewController {
     
-    var viewModel: VideoPlayerSettingsTableViewModel!
+    var viewModel: VideoPlayerSettingsTableViewModel
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    init(_ viewModel: VideoPlayerSettingsTableViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        registerCells()
     }
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func registerCells() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: VideoPlayerSettingsTableViewController.classString)
+    }
 }

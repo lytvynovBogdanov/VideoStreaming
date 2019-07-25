@@ -24,6 +24,8 @@ class StreamingDetailViewController: UIViewController {
         videoPlayer = VideoPlayer(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
         
         super.init(nibName: nil, bundle: nil)
+        
+        videoPlayer.owner = self
     }
     
     required init?(coder aDecoder: NSCoder) {

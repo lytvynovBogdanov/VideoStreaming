@@ -12,6 +12,8 @@ import AVFoundation
 class VideoPlayer {
     let viewModel: VideoPlayerViewModel
     
+    weak var owner: UIViewController?
+    
     let menu: DefaultPlayerMenu
     let video: DefaultPlayerVideo
     
@@ -46,8 +48,13 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
     }
 
     func settingsPressed() {
+        let audios = viewModel.player.currentItem?.tracks(type: .audio)
+        let subtitles = viewModel.player.currentItem?.tracks(type: .subtitle)
+        let videoPlayerSettingsTableViewModel = VideoPlayerSettingsTableViewModel(audios: audios, subtitles: subtitles)
+        let videoPlayerSettingsTableViewController = VideoPlayerSettingsTableViewController.init(videoPlayerSettingsTableViewModel)
+        owner?.navigationController?.pushViewController(videoPlayerSettingsTableViewController, animated: true)
         
-        let subtitles = viewModel.player.currentItem?.tracks(type: .audio)
+        
         // Get selected track displayName
         let selectedSubtitle = viewModel.player.currentItem?.selected(type: .audio)
         // Select track with displayName
