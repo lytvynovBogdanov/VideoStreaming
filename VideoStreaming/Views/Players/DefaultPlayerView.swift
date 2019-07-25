@@ -9,9 +9,15 @@
 import UIKit
 import AVFoundation
 
+protocol DefaultPlayer {
+    func play()
+    func pause()
+}
+
 class DefaultPlayerView: UIView {
     
     private let viewModel: DefaultPlayerViewModel
+    private let player: AVPlayer?
     private let playerLayer: AVPlayerLayer?
     
     init(viewModel: DefaultPlayerViewModel) {
@@ -19,12 +25,13 @@ class DefaultPlayerView: UIView {
         
         if let url = viewModel.videoStream.url {
             let playerItem = AVPlayerItem(url: url)
-            let player = AVPlayer(playerItem: playerItem)
-            playerLayer = AVPlayerLayer(player: player)
+            player = AVPlayer(playerItem: playerItem)
+            
         } else {
             assertionFailure()
-            playerLayer = AVPlayerLayer()
+            player = AVPlayer()
         }
+        playerLayer = AVPlayerLayer(player: player)
         
         super.init(frame: .zero)
     }
@@ -45,5 +52,15 @@ class DefaultPlayerView: UIView {
         super.layoutSubviews()
         
         self.playerLayer?.frame = self.bounds
+    }
+}
+
+extension DefaultPlayerView: DefaultPlayer {
+    func play() {
+        player?.play()
+    }
+    
+    func pause() {
+        player?.pause()
     }
 }
