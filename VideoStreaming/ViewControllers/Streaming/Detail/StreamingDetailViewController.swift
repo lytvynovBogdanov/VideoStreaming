@@ -18,15 +18,9 @@ class StreamingDetailViewController: UIViewController {
     
     init(videoStream: VideoStream) {
         let videoPlayerViewModel = VideoPlayerViewModel(videoStream)
-        let playerVideo = DefaultPlayerVideo(videoPlayerViewModel)
         
-        let playerMenu: DefaultPlayerMenu
-        if let menu = DefaultPlayerMenu.fromNib() as? DefaultPlayerMenu {
-            playerMenu = menu
-        } else {
-            assertionFailure()
-            playerMenu = DefaultPlayerMenu()
-        }
+        let playerMenu: DefaultPlayerMenu = DefaultPlayerMenu.fromNib()
+        let playerVideo: DefaultPlayerVideo = DefaultPlayerVideo(videoPlayerViewModel)
         videoPlayer = VideoPlayer(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
         
         super.init(nibName: nil, bundle: nil)
