@@ -28,12 +28,6 @@
 		494F169922E8A1130021BFB1 /* StreamingOverviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169822E8A1130021BFB1 /* StreamingOverviewDelegate.swift */; };
 		494F169C22E8A35F0021BFB1 /* StreamingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169A22E8A35F0021BFB1 /* StreamingDetailViewController.swift */; };
 		494F169D22E8A35F0021BFB1 /* StreamingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F169B22E8A35F0021BFB1 /* StreamingDetailViewController.xib */; };
-		49A2319922EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */; };
-		49A2319A22EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */; };
-		49A2319C22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */; };
-		49A2319E22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */; };
-		49A231A122EA27A300D313CC /* NSObject+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A231A022EA27A300D313CC /* NSObject+Common.swift */; };
-		49A231A322EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A231A222EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,12 +54,6 @@
 		494F169822E8A1130021BFB1 /* StreamingOverviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingOverviewDelegate.swift; sourceTree = "<group>"; };
 		494F169A22E8A35F0021BFB1 /* StreamingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingDetailViewController.swift; sourceTree = "<group>"; };
 		494F169B22E8A35F0021BFB1 /* StreamingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamingDetailViewController.xib; sourceTree = "<group>"; };
-		49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableViewController.swift; sourceTree = "<group>"; };
-		49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerSettingsTableViewController.xib; sourceTree = "<group>"; };
-		49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableViewModel.swift; sourceTree = "<group>"; };
-		49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableDataSource.swift; sourceTree = "<group>"; };
-		49A231A022EA27A300D313CC /* NSObject+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Common.swift"; sourceTree = "<group>"; };
-		49A231A222EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +133,6 @@
 		494F168722E888FA0021BFB1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				49FBE08F22EA257A00E81C48 /* VideoPlayerSettings */,
 				494F169522E88F550021BFB1 /* Streaming */,
 			);
 			path = ViewControllers;
@@ -209,7 +196,6 @@
 		49A2319F22EA275100D313CC /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				49A231A022EA27A300D313CC /* NSObject+Common.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -220,18 +206,6 @@
 				490DF75422EA1637004D885E /* AVPlayerItem+Tracks.swift */,
 			);
 			path = AVFoundation;
-			sourceTree = "<group>";
-		};
-		49FBE08F22EA257A00E81C48 /* VideoPlayerSettings */ = {
-			isa = PBXGroup;
-			children = (
-				49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */,
-				49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */,
-				49A231A222EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift */,
-				49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */,
-				49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */,
-			);
-			path = VideoPlayerSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +271,6 @@
 				494F169D22E8A35F0021BFB1 /* StreamingDetailViewController.xib in Resources */,
 				490DF74F22E9D608004D885E /* DefaultPlayerMenu.xib in Resources */,
 				494F167B22E888640021BFB1 /* Main.storyboard in Resources */,
-				49A2319A22EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				490DF73922E9C040004D885E /* UIVIew+Init.swift in Sources */,
-				49A2319922EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift in Sources */,
 				494F168A22E889890021BFB1 /* StreamingOverviewController.swift in Sources */,
 				490DF73722E9BEB7004D885E /* UIView+Resize.swift in Sources */,
 				490DF73022E9A84C004D885E /* UIImage+Identifiers.swift in Sources */,
@@ -318,13 +290,9 @@
 				490DF74E22E9D608004D885E /* DefaultPlayerMenu.swift in Sources */,
 				494F167622E888640021BFB1 /* AppDelegate.swift in Sources */,
 				494F169C22E8A35F0021BFB1 /* StreamingDetailViewController.swift in Sources */,
-				49A2319E22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift in Sources */,
-				49A231A322EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift in Sources */,
 				494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */,
-				49A231A122EA27A300D313CC /* NSObject+Common.swift in Sources */,
 				490DF75522EA1637004D885E /* AVPlayerItem+Tracks.swift in Sources */,
 				494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */,
-				49A2319C22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift in Sources */,
 				490DF75022E9D608004D885E /* VideoPlayer.swift in Sources */,
 				494F169922E8A1130021BFB1 /* StreamingOverviewDelegate.swift in Sources */,
 				494F168E22E889D70021BFB1 /* StreamingOverviewModel.swift in Sources */,
