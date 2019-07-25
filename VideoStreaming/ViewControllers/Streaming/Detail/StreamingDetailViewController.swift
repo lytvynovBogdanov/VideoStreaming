@@ -7,11 +7,12 @@
 //
 
 import UIKit
-import AVFoundation
 
 class StreamingDetailViewController: UIViewController {
 
-    var player:AVPlayer?
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var playerView: UIView!
+    
     let viewModel: StreamingDetailViewModel
     
     init(_ viewModel: StreamingDetailViewModel) {
@@ -25,16 +26,6 @@ class StreamingDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let url = viewModel.videoStream.url {
-            let playerItem = AVPlayerItem(url: url)
-
-            player = AVPlayer(playerItem: playerItem)
-
-            let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = CGRect(x:0, y:0, width:300, height:300)
-            self.view.layer.addSublayer(playerLayer)
-            player?.play()
-        }
         
     }
 }
