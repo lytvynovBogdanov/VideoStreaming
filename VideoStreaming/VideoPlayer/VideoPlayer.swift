@@ -24,7 +24,6 @@ class VideoPlayer {
         self.menu = menu
         self.video = video
         
-        video.delegate = self
         menu.delegate = self
         menu.viewModel = viewModel
     }
@@ -43,20 +42,9 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
         let player = viewModel.player
         let targetTime: CMTime = CMTimeMake(value: Int64(seconds), timescale: 1)
         player.seek(to: targetTime)
-        
-        //        if player.rate == 0
-        //        {
-        //            player?.play()
-        //        }
     }
 
     func settingsPressed() {
 
-    }
-}
-
-extension VideoPlayer: VideoPlayerVideoDelegate {
-    var duration: Double {
-        return 0
     }
 }
