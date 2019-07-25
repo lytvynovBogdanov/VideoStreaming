@@ -44,14 +44,14 @@ class DefaultPlayerView: UIView {
         super.draw(rect)
         
         if let playerLayer = playerLayer {
-            self.layer.addSublayer(playerLayer)
+            layer.addSublayer(playerLayer)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        self.playerLayer?.frame = self.bounds
+        playerLayer?.frame = self.bounds
     }
 }
 

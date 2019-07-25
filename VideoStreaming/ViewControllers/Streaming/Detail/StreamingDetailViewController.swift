@@ -7,16 +7,20 @@
 //
 
 import UIKit
+//import AVFoundation
 
 class StreamingDetailViewController: UIViewController {
 
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var menuViewContainer: UIView!
+    @IBOutlet weak var playerViewContainer: UIView!
     
-    let viewModel: StreamingDetailViewModel
+    let playerMenu: DefaultPlayerMenu = DefaultPlayerMenu.fromNib()
+    let playerView: DefaultPlayerView
     
-    init(_ viewModel: StreamingDetailViewModel) {
-        self.viewModel = viewModel
+    init(videoStream: VideoStream) {
+        let defaultPlayerViewModel = DefaultPlayerViewModel(videoStream: videoStream)
+        playerView = DefaultPlayerView(viewModel: defaultPlayerViewModel)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,5 +31,7 @@ class StreamingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        menuViewContainer.addSubviewAndFit(playerMenu)
+        playerViewContainer.addSubviewAndFit(playerView)
     }
 }

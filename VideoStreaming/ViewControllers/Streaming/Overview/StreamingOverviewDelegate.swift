@@ -11,8 +11,7 @@ import UIKit
 extension StreamingOverviewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let stream = viewModel.stream(at: indexPath) else { return }
-        let streamingDetailViewModel = StreamingDetailViewModel(videoStream: stream)
-        let streamingDetailViewController = StreamingDetailViewController(streamingDetailViewModel)
+        let streamingDetailViewController = StreamingDetailViewController(videoStream: stream)
         self.navigationController?.pushViewController(streamingDetailViewController, animated: true)
     }
 }

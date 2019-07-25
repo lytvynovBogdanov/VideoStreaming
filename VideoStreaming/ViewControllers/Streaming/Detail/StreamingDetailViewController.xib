@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StreamingDetailViewController" customModule="VideoStreaming" customModuleProvider="target">
             <connections>
-                <outlet property="menuView" destination="ncw-IX-z6x" id="Iuw-Va-WR0"/>
-                <outlet property="playerView" destination="1Ma-Aw-9p4" id="vjs-e0-r3H"/>
+                <outlet property="menuViewContainer" destination="ncw-IX-z6x" id="Iuw-Va-WR0"/>
+                <outlet property="playerViewContainer" destination="1Ma-Aw-9p4" id="vjs-e0-r3H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

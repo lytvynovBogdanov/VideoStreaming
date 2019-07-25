@@ -15,7 +15,7 @@ protocol DefaultPlayerMenuDelegate: class {
     func settingsPressed()
 }
 
-class DefaultPlayerMenu: UIView {
+final class DefaultPlayerMenu: UIView {
     
     // MARK: -
     // MARK: public properties
@@ -51,7 +51,7 @@ class DefaultPlayerMenu: UIView {
         case pause
     }
     
-    private var currewntActionState: ActionState {
+    private var currewntActionState: ActionState? {
         didSet {
             if currewntActionState == .play {
                 playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
@@ -68,13 +68,14 @@ class DefaultPlayerMenu: UIView {
     // MARK: -
     // MARK: Init
     
-    override init(frame: CGRect) {
+//    override init(frame: CGRect) {
+//        currewntActionState = .play
+//        super.init(frame: frame)
+//    }
+//
+    override func awakeFromNib() {
+        super.awakeFromNib()
         currewntActionState = .play
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: -
