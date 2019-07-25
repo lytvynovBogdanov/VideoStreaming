@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49009B9A22E9A20800561389 /* DefaultPlayerMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49009B9922E9A20800561389 /* DefaultPlayerMenu.xib */; };
+		49009B9C22E9A42F00561389 /* DefaultPlayerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49009B9B22E9A42F00561389 /* DefaultPlayerMenu.swift */; };
+		490DF73022E9A84C004D885E /* UIImage+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490DF72F22E9A84C004D885E /* UIImage+Identifiers.swift */; };
 		494F167622E888640021BFB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F167522E888640021BFB1 /* AppDelegate.swift */; };
 		494F167B22E888640021BFB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494F167922E888640021BFB1 /* Main.storyboard */; };
 		494F167D22E888690021BFB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494F167C22E888690021BFB1 /* Assets.xcassets */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49009B9922E9A20800561389 /* DefaultPlayerMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DefaultPlayerMenu.xib; sourceTree = "<group>"; };
+		49009B9B22E9A42F00561389 /* DefaultPlayerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPlayerMenu.swift; sourceTree = "<group>"; };
+		490DF72F22E9A84C004D885E /* UIImage+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Identifiers.swift"; sourceTree = "<group>"; };
 		494F167222E888640021BFB1 /* VideoStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494F167522E888640021BFB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494F167A22E888640021BFB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49009B9822E9A1E500561389 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49FC199E22E9A1C300D4E0E1 /* Menu */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		494F166922E888640021BFB1 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +89,7 @@
 				494F169322E88ED70021BFB1 /* Managers */,
 				494F169022E88D780021BFB1 /* Models */,
 				494F168722E888FA0021BFB1 /* ViewControllers */,
+				49009B9822E9A1E500561389 /* Views */,
 				494F167922E888640021BFB1 /* Main.storyboard */,
 				494F167C22E888690021BFB1 /* Assets.xcassets */,
 				494F167E22E888690021BFB1 /* LaunchScreen.storyboard */,
@@ -105,6 +120,7 @@
 		494F168F22E88D5B0021BFB1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				490DF72F22E9A84C004D885E /* UIImage+Identifiers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -142,6 +158,15 @@
 				494F168822E889430021BFB1 /* Overview */,
 			);
 			path = Streaming;
+			sourceTree = "<group>";
+		};
+		49FC199E22E9A1C300D4E0E1 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				49009B9922E9A20800561389 /* DefaultPlayerMenu.xib */,
+				49009B9B22E9A42F00561389 /* DefaultPlayerMenu.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +230,7 @@
 				494F168022E888690021BFB1 /* LaunchScreen.storyboard in Resources */,
 				494F167D22E888690021BFB1 /* Assets.xcassets in Resources */,
 				494F169D22E8A35F0021BFB1 /* StreamingDetailViewController.xib in Resources */,
+				49009B9A22E9A20800561389 /* DefaultPlayerMenu.xib in Resources */,
 				494F167B22E888640021BFB1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,12 +243,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				494F168A22E889890021BFB1 /* StreamingOverviewController.swift in Sources */,
+				490DF73022E9A84C004D885E /* UIImage+Identifiers.swift in Sources */,
 				494F167622E888640021BFB1 /* AppDelegate.swift in Sources */,
 				494F169C22E8A35F0021BFB1 /* StreamingDetailViewController.swift in Sources */,
 				494F169222E88DAD0021BFB1 /* VideoStream.swift in Sources */,
 				494F169722E89E3E0021BFB1 /* StreamManager.swift in Sources */,
 				494F169F22E8A36F0021BFB1 /* StreamingDetailViewModel.swift in Sources */,
 				494F169922E8A1130021BFB1 /* StreamingOverviewDelegate.swift in Sources */,
+				49009B9C22E9A42F00561389 /* DefaultPlayerMenu.swift in Sources */,
 				494F168E22E889D70021BFB1 /* StreamingOverviewModel.swift in Sources */,
 				494F168C22E889A50021BFB1 /* StreamingOverviewDataSource.swift in Sources */,
 			);
