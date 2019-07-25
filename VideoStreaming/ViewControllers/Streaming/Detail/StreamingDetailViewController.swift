@@ -14,16 +14,17 @@ class StreamingDetailViewController: UIViewController {
     @IBOutlet weak var menuViewContainer: UIView!
     @IBOutlet weak var playerViewContainer: UIView!
     
-    let playerMenu: DefaultPlayerMenu = DefaultPlayerMenu.fromNib()
-    let playerView: DefaultPlayerView
+    let videoPlayer: VideoPlayer
+    let playerMenu: DefaultPlayerMenu
+    let playerVideo: DefaultPlayerVideo
     
     init(videoStream: VideoStream) {
-        let defaultPlayerViewModel = DefaultPlayerViewModel(videoStream: videoStream)
-        playerView = DefaultPlayerView(viewModel: defaultPlayerViewModel)
+        let videoPlayerViewModel = VideoPlayerViewModel(videoStream)
+        playerMenu = DefaultPlayerMenu.fromNib()
+        playerVideo = DefaultPlayerVideo(videoPlayerViewModel)
+        videoPlayer = VideoPlayer.init(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
         
         super.init(nibName: nil, bundle: nil)
-        
-        playerMenu.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +35,6 @@ class StreamingDetailViewController: UIViewController {
         super.viewDidLoad()
         
         menuViewContainer.addSubviewAndFit(playerMenu)
-        playerViewContainer.addSubviewAndFit(playerView)
+        playerViewContainer.addSubviewAndFit(playerVideo)
     }
 }

@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol DefaultPlayerMenuDelegate: class {
-    func play()
-    func pause()
-    func sliderChanged()
-    func settingsPressed()
-}
-
 final class DefaultPlayerMenu: UIView {
     
     // MARK: -
@@ -34,7 +27,7 @@ final class DefaultPlayerMenu: UIView {
     
     @IBOutlet weak var progressSlider: UISlider!
     
-    weak var delegate: DefaultPlayerMenuDelegate?
+    weak var delegate: VideoPlayerMenu?
     
     // MARK: -
     // MARK: private properties
@@ -66,7 +59,7 @@ final class DefaultPlayerMenu: UIView {
     }
     
     // MARK: -
-    // MARK: Init
+    // MARK: lifecyrcle
     override func awakeFromNib() {
         super.awakeFromNib()
         currewntActionState = .pause
@@ -88,3 +81,22 @@ final class DefaultPlayerMenu: UIView {
         delegate?.sliderChanged()
     }
 }
+
+extension DefaultPlayerMenu: VideoPlayerMenu {
+    func play() {
+        
+    }
+    
+    func pause() {
+        
+    }
+    
+    func sliderChanged() {
+        
+    }
+    
+    func settingsPressed() {
+        
+    }
+}
+
