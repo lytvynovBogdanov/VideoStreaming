@@ -23,8 +23,10 @@ class VideoPlayer {
         self.viewModel = viewModel
         self.menu = menu
         self.video = video
-        self.menu.delegate = self
-        self.video.delegate = self
+        
+        video.delegate = self
+        menu.delegate = self
+        menu.viewModel = viewModel
     }
 }
 
@@ -36,9 +38,16 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
     func pause() {
         viewModel.player.pause()
     }
-
-    func sliderChanged() {
-
+    
+    func sliderChanged(seconds: Float) {
+        let player = viewModel.player
+        let targetTime: CMTime = CMTimeMake(value: Int64(seconds), timescale: 1)
+        player.seek(to: targetTime)
+        
+        //        if player.rate == 0
+        //        {
+        //            player?.play()
+        //        }
     }
 
     func settingsPressed() {

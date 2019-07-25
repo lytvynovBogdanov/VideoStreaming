@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol VideoPlayerMenuDelegate: class {
     func play()
     func pause()
-    func sliderChanged()
+    func sliderChanged(seconds: Float)
     func settingsPressed()
 }
 
@@ -19,6 +20,12 @@ final class DefaultPlayerMenu: UIView {
     
     // MARK: -
     // MARK: public properties
+    
+    var viewModel: VideoPlayerViewModel? {
+        didSet {
+            configureProgressSlider()
+        }
+    }
 
     @IBOutlet weak var playPauseButton: UIButton! {
         didSet {
@@ -65,6 +72,14 @@ final class DefaultPlayerMenu: UIView {
         }
     }
     
+    private func configureProgressSlider() {
+        progressSlider.minimumValue = 0
+        guard let duration = self.viewModel?.playerItem?.asset.duration else { return }
+        progressSlider.maximumValue = Float(CMTimeGetSeconds(duration))
+        progressSlider.isContinuous = true
+        progressSlider.tintColor = .gray
+    }
+    
     // MARK: -
     // MARK: lifecyrcle
     override func awakeFromNib() {
@@ -84,7 +99,7 @@ final class DefaultPlayerMenu: UIView {
         delegate?.settingsPressed()
     }
     
-    @IBAction func progressSliderChanged() {
-        delegate?.sliderChanged()
+    @IBAction func progressSliderChanged(_ playbackSlider: UISlider) {
+        delegate?.sliderChanged(seconds: playbackSlider.value)
     }
 }
