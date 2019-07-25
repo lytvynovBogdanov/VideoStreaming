@@ -10,15 +10,13 @@ import UIKit
 
 extension StreamingOverviewController {
     
-    private static let cellIdentifier = "cell"
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return viewModel.streamCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StreamingOverviewController.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: StreamingOverviewController.classString, for: indexPath)
         guard let stream = viewModel.stream(at: indexPath) else {
             assertionFailure()
             return UITableViewCell()

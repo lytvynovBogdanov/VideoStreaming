@@ -15,13 +15,18 @@ class StreamingDetailViewController: UIViewController {
     @IBOutlet weak var playerViewContainer: UIView!
     
     let videoPlayer: VideoPlayer
-    let playerMenu: DefaultPlayerMenu
-    let playerVideo: DefaultPlayerVideo
     
     init(videoStream: VideoStream) {
         let videoPlayerViewModel = VideoPlayerViewModel(videoStream)
-        playerMenu = DefaultPlayerMenu.fromNib()
-        playerVideo = DefaultPlayerVideo(videoPlayerViewModel)
+        let playerVideo = DefaultPlayerVideo(videoPlayerViewModel)
+        
+        let playerMenu: DefaultPlayerMenu
+        if let menu = DefaultPlayerMenu.fromNib() as? DefaultPlayerMenu {
+            playerMenu = menu
+        } else {
+            assertionFailure()
+            playerMenu = DefaultPlayerMenu()
+        }
         videoPlayer = VideoPlayer(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
         
         super.init(nibName: nil, bundle: nil)
@@ -34,8 +39,8 @@ class StreamingDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuViewContainer.addSubviewAndFit(playerMenu)
-        playerViewContainer.addSubviewAndFit(playerVideo)
+        menuViewContainer.addSubviewAndFit(videoPlayer.menu)
+        playerViewContainer.addSubviewAndFit(videoPlayer.video)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
