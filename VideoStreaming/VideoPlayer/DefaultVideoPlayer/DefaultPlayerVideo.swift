@@ -9,7 +9,13 @@
 import UIKit
 import AVFoundation
 
+protocol VideoPlayerVideoDelegate: class {
+    var duration: Double { get }
+}
+
 class DefaultPlayerVideo: UIView {
+    
+    weak var delegate: VideoPlayerVideoDelegate?
     
     private let playerLayer: AVPlayerLayer
     
@@ -33,11 +39,5 @@ class DefaultPlayerVideo: UIView {
         super.layoutSubviews()
         
         playerLayer.frame = self.bounds
-    }
-}
-
-extension DefaultPlayerVideo: VideoPlayerVideo {
-    var duration: Double {
-        return 0.0
     }
 }

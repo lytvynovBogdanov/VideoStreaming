@@ -22,7 +22,7 @@ class StreamingDetailViewController: UIViewController {
         let videoPlayerViewModel = VideoPlayerViewModel(videoStream)
         playerMenu = DefaultPlayerMenu.fromNib()
         playerVideo = DefaultPlayerVideo(videoPlayerViewModel)
-        videoPlayer = VideoPlayer.init(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
+        videoPlayer = VideoPlayer(viewModel: videoPlayerViewModel, menu: playerMenu, video: playerVideo)
         
         super.init(nibName: nil, bundle: nil)
     }

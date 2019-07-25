@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol VideoPlayerMenuDelegate: class {
+    func play()
+    func pause()
+    func sliderChanged()
+    func settingsPressed()
+}
+
 final class DefaultPlayerMenu: UIView {
     
     // MARK: -
@@ -27,7 +34,7 @@ final class DefaultPlayerMenu: UIView {
     
     @IBOutlet weak var progressSlider: UISlider!
     
-    weak var delegate: VideoPlayerMenu?
+    weak var delegate: VideoPlayerMenuDelegate?
     
     // MARK: -
     // MARK: private properties
@@ -81,22 +88,3 @@ final class DefaultPlayerMenu: UIView {
         delegate?.sliderChanged()
     }
 }
-
-extension DefaultPlayerMenu: VideoPlayerMenu {
-    func play() {
-        
-    }
-    
-    func pause() {
-        
-    }
-    
-    func sliderChanged() {
-        
-    }
-    
-    func settingsPressed() {
-        
-    }
-}
-
