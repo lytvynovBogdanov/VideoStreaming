@@ -37,4 +37,10 @@ class StreamingDetailViewController: UIViewController {
         menuViewContainer.addSubviewAndFit(playerMenu)
         playerViewContainer.addSubviewAndFit(playerVideo)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        videoPlayer.dismiss()
+    }
 }

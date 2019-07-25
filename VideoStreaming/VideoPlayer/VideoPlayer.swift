@@ -9,10 +9,6 @@
 import UIKit
 import AVFoundation
 
-class GeneralVideoPlayerMenu: UIView {
-    
-}
-
 class VideoPlayer {
     let viewModel: VideoPlayerViewModel
     
@@ -26,6 +22,11 @@ class VideoPlayer {
         
         menu.delegate = self
         menu.viewModel = viewModel
+    }
+    
+    func dismiss() {
+        viewModel.player.pause()
+        video.dismiss()
     }
 }
 
@@ -45,6 +46,13 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
     }
 
     func settingsPressed() {
-
+        
+        let subtitles = viewModel.player.currentItem?.tracks(type: .audio)
+        // Get selected track displayName
+        let selectedSubtitle = viewModel.player.currentItem?.selected(type: .audio)
+        // Select track with displayName
+        guard let name = subtitles?.last else { return }
+        let success = viewModel.player.currentItem?.select(type: .audio, name: name)
+        
     }
 }

@@ -34,4 +34,8 @@ class DefaultPlayerVideo: UIView {
         
         playerLayer.frame = self.bounds
     }
+    
+    func dismiss() {
+        playerLayer.removeFromSuperlayer()
+    }
 }
