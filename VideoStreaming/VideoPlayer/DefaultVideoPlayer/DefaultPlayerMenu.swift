@@ -24,6 +24,7 @@ final class DefaultPlayerMenu: UIView {
     var viewModel: VideoPlayerViewModel? {
         didSet {
             configureProgressSlider()
+            bind()
         }
     }
 
@@ -58,41 +59,25 @@ final class DefaultPlayerMenu: UIView {
         case pause
     }
     
-    private var currewntActionState: ActionState? {
-        didSet {
-            if currewntActionState == .play {
-                playPauseButton.setImage(UIImage(assetIdentifier: .pause), for: .normal)
-                delegate?.play()
-            } else if currewntActionState == .pause {
-                playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
-                delegate?.pause()
-            } else {
-                assertionFailure()
-            }
-        }
+    private var sliderRefreshTimer: Timer?
+    
+    @objc dynamic var currentDuration: Double {
+        return CMTimeGetSeconds(self.viewModel?.player.currentTime() ?? .zero)
     }
     
-    private func configureProgressSlider() {
-        progressSlider.minimumValue = 0
-        guard let duration = self.viewModel?.playerItem?.asset.duration else { return }
-        progressSlider.maximumValue = Float(CMTimeGetSeconds(duration))
-        progressSlider.isContinuous = true
-        progressSlider.tintColor = .gray
-    }
-    
-    // MARK: -
-    // MARK: lifecyrcle
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        currewntActionState = .pause
+    @objc dynamic var totalDuration: Double {
+        return CMTimeGetSeconds(self.viewModel?.player.currentItem?.asset.duration ?? .zero)
     }
     
     // MARK: -
     // MARK: actions
     
     @IBAction private func playPausePressed() {
-        currewntActionState = currewntActionState == .play ? .pause : .play
-        
+        if self.viewModel?.player.timeControlStatus == .playing {
+            delegate?.pause()
+        } else {
+            delegate?.play()
+        }
     }
     
     @IBAction func settingsButtonPressed() {
@@ -101,5 +86,45 @@ final class DefaultPlayerMenu: UIView {
     
     @IBAction func progressSliderChanged(_ playbackSlider: UISlider) {
         delegate?.sliderChanged(seconds: playbackSlider.value)
+    }
+    
+    // MARK: -
+    // MARK: private functions
+    private var timeControlStatusObservation: NSKeyValueObservation?
+    func bind() {
+        timeControlStatusObservation = self.viewModel?.player.observe(\.timeControlStatus, options: [.new, .old], changeHandler: { [weak self] (player, _) in
+            if player.timeControlStatus == .playing {
+                self?.playPauseButton.setImage(UIImage(assetIdentifier: .pause), for: .normal)
+                self?.startSliderRefreshTimer()
+            } else {
+                self?.playPauseButton.setImage(UIImage(assetIdentifier: .play), for: .normal)
+                self?.terminateSliderRefreshTimer()
+            }
+        })
+    }
+    
+    private func configureProgressSlider() {
+        progressSlider.minimumValue = 0
+        
+        progressSlider.maximumValue = Float(totalDuration)
+        progressSlider.isContinuous = true
+        progressSlider.tintColor = .gray
+    }
+    
+    private func startSliderRefreshTimer() {
+        sliderRefreshTimer = Timer.scheduledTimer(timeInterval: 1,
+                                                  target: self,
+                                                  selector: #selector(timerIsTriggered),
+                                                  userInfo: nil,
+                                                  repeats: true)
+    }
+    
+    private func terminateSliderRefreshTimer() {
+        sliderRefreshTimer?.invalidate()
+        sliderRefreshTimer = nil
+    }
+    
+    @objc private func timerIsTriggered() {
+        progressSlider.value = Float(currentDuration)
     }
 }

@@ -11,17 +11,15 @@ import AVFoundation
 struct VideoPlayerViewModel {
     let videoStream: VideoStream
     let player: AVPlayer
-    let playerItem: AVPlayerItem?
     
     init(_ videoStream: VideoStream) {
         self.videoStream = videoStream
         
         if let url = videoStream.url {
-            playerItem = AVPlayerItem(url: url)
+            let playerItem = AVPlayerItem(url: url)
             player = AVPlayer(playerItem: playerItem)
         } else {
             assertionFailure()
-            playerItem = nil
             player = AVPlayer()
         }
     }
