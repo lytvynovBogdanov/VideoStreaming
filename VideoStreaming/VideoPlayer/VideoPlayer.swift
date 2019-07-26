@@ -63,7 +63,8 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
 }
 
 extension VideoPlayer: VideoPlayerSettingsDelegate {
-    func selected(type: AVPlayerItem.TrackType, name: String) {
+    func selected(type: AVPlayerItem.TrackType, name: String, controller: UIViewController?) {
+        controller?.dismiss(animated: true)
         _ = viewModel.player.currentItem?.select(type: type, name: name)
     }
 }

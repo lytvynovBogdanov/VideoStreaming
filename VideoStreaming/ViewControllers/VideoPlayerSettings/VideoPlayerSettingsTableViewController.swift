@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol VideoPlayerSettingsDelegate: class {
-    func selected(type: AVPlayerItem.TrackType, name: String)
+    func selected(type: AVPlayerItem.TrackType, name: String, controller: UIViewController?)
 }
 
 class VideoPlayerSettingsTableViewController: UITableViewController {

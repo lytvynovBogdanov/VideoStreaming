@@ -14,7 +14,7 @@ extension VideoPlayerSettingsTableViewController {
         
         updateCell(at: indexPath, type: viewModel.sections[indexPath.section] )
         let trackType = viewModel.sections[indexPath.section]
-        delegate?.selected(type: trackType, name: viewModel.trackTypes(of: trackType)[indexPath.row])
+        delegate?.selected(type: trackType, name: viewModel.trackTypes(of: trackType)[indexPath.row], controller: self)
         }
         
 //        self.navigationController?.popViewController(animated: true)
