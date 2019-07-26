@@ -10,21 +10,29 @@ import Foundation
 import AVFoundation
 
 struct VideoPlayerSettingsTableViewModel {
-    let audio: [String]
-    let subtitles: [String]
-    let sections: [AVPlayerItem.TrackType]
+    private let playerItem: AVPlayerItem?
     
-    init(audios: [String]?, subtitles: [String]?) {
-        self.audio = audios ?? []
-        self.subtitles = subtitles ?? []
-        
+    lazy var sections: [AVPlayerItem.TrackType] = {
         var sections = [AVPlayerItem.TrackType]()
-        if self.audio.count > 0 {
+        if self.trackTypes(of: .audio).count > 0 {
             sections.append(.audio)
         }
-        if self.subtitles.count > 0 {
+        if self.trackTypes(of: .subtitle).count > 0 {
             sections.append(.subtitle)
         }
-        self.sections = sections
+        return sections
+    }()
+    
+    init(_ playerItem: AVPlayerItem?) {
+        self.playerItem = playerItem
+    }
+    
+    func trackTypes(of type: AVPlayerItem.TrackType) -> [String] {
+        return playerItem?.tracks(type: type) ?? []
+    }
+    
+    func selectedIndex(of type: AVPlayerItem.TrackType) -> Int? {
+        guard let selectedIndex = playerItem?.selected(type: type) else { return nil }
+        return trackTypes(of: type).firstIndex(of: selectedIndex)
     }
 }

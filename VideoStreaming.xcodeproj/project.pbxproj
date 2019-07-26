@@ -29,7 +29,6 @@
 		494F169C22E8A35F0021BFB1 /* StreamingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494F169A22E8A35F0021BFB1 /* StreamingDetailViewController.swift */; };
 		494F169D22E8A35F0021BFB1 /* StreamingDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 494F169B22E8A35F0021BFB1 /* StreamingDetailViewController.xib */; };
 		49A2319922EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */; };
-		49A2319A22EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */; };
 		49A2319C22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */; };
 		49A2319E22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */; };
 		49A231A122EA27A300D313CC /* NSObject+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A231A022EA27A300D313CC /* NSObject+Common.swift */; };
@@ -61,7 +60,6 @@
 		494F169A22E8A35F0021BFB1 /* StreamingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingDetailViewController.swift; sourceTree = "<group>"; };
 		494F169B22E8A35F0021BFB1 /* StreamingDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreamingDetailViewController.xib; sourceTree = "<group>"; };
 		49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableViewController.swift; sourceTree = "<group>"; };
-		49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerSettingsTableViewController.xib; sourceTree = "<group>"; };
 		49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableViewModel.swift; sourceTree = "<group>"; };
 		49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerSettingsTableDataSource.swift; sourceTree = "<group>"; };
 		49A231A022EA27A300D313CC /* NSObject+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Common.swift"; sourceTree = "<group>"; };
@@ -228,7 +226,6 @@
 				49A2319722EA25CA00D313CC /* VideoPlayerSettingsTableViewController.swift */,
 				49A2319D22EA265A00D313CC /* VideoPlayerSettingsTableDataSource.swift */,
 				49A231A222EA29BA00D313CC /* VideoPlayerSettingsTableDelegate.swift */,
-				49A2319822EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib */,
 				49A2319B22EA25E900D313CC /* VideoPlayerSettingsTableViewModel.swift */,
 			);
 			path = VideoPlayerSettings;
@@ -297,7 +294,6 @@
 				494F169D22E8A35F0021BFB1 /* StreamingDetailViewController.xib in Resources */,
 				490DF74F22E9D608004D885E /* DefaultPlayerMenu.xib in Resources */,
 				494F167B22E888640021BFB1 /* Main.storyboard in Resources */,
-				49A2319A22EA25CA00D313CC /* VideoPlayerSettingsTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

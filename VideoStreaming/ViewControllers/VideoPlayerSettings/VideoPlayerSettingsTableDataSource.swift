@@ -15,12 +15,7 @@ extension VideoPlayerSettingsTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch viewModel.sections[section] {
-        case .audio:
-            return viewModel.audio.count
-        case .subtitle:
-            return viewModel.subtitles.count
-        }
+        return viewModel.trackTypes(of: viewModel.sections[section]).count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -35,12 +30,9 @@ extension VideoPlayerSettingsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: VideoPlayerSettingsTableViewController.classString, for: indexPath)
         
-        switch viewModel.sections[indexPath.section]  {
-        case .audio:
-            cell.textLabel?.text = viewModel.audio[indexPath.row]
-        case .subtitle:
-            cell.textLabel?.text = viewModel.subtitles[indexPath.row]
-        }
+        let trackType = viewModel.sections[indexPath.section]
+        cell.textLabel?.text = viewModel.trackTypes(of: trackType)[indexPath.row]
+        cell.accessoryType = viewModel.selectedIndex(of: trackType) == indexPath.row ? .checkmark : .none
         
         return cell
     }

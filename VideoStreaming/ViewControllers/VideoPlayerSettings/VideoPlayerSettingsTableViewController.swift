@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol VideoPlayerSettingsDelegate: class {
-    func audioSelected(name: String)
-    func subtitleSelected(name: String)
+    func selected(type: AVPlayerItem.TrackType, name: String)
 }
-
 
 class VideoPlayerSettingsTableViewController: UITableViewController {
     

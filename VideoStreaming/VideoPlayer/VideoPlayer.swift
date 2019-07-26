@@ -48,10 +48,8 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
     }
 
     func settingsPressed() {
-        let audios = viewModel.player.currentItem?.tracks(type: .audio)
-        let subtitles = viewModel.player.currentItem?.tracks(type: .subtitle)
-        let videoPlayerSettingsTableViewModel = VideoPlayerSettingsTableViewModel(audios: audios, subtitles: subtitles)
-        let videoPlayerSettingsTableViewController = VideoPlayerSettingsTableViewController.init(videoPlayerSettingsTableViewModel)
+        let videoPlayerSettingsTableViewModel = VideoPlayerSettingsTableViewModel(viewModel.player.currentItem)
+        let videoPlayerSettingsTableViewController = VideoPlayerSettingsTableViewController(videoPlayerSettingsTableViewModel)
         owner?.navigationController?.pushViewController(videoPlayerSettingsTableViewController, animated: true)
         videoPlayerSettingsTableViewController.delegate = self
         
@@ -59,11 +57,7 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
 }
 
 extension VideoPlayer: VideoPlayerSettingsDelegate {
-    func audioSelected(name: String) {
-        _ = viewModel.player.currentItem?.select(type: .audio, name: name)
-    }
-    
-    func subtitleSelected(name: String) {
-        _ = viewModel.player.currentItem?.select(type: .subtitle, name: name)
+    func selected(type: AVPlayerItem.TrackType, name: String) {
+        _ = viewModel.player.currentItem?.select(type: type, name: name)
     }
 }
