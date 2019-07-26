@@ -67,4 +67,9 @@ extension VideoPlayer: VideoPlayerSettingsDelegate {
         controller?.dismiss(animated: true)
         _ = viewModel.player.currentItem?.select(type: type, name: name)
     }
+    
+    func deleted(type: AVPlayerItem.TrackType, controller: UIViewController?) {
+        controller?.dismiss(animated: true)
+        viewModel.player.currentItem?.delete(type: type)
+    }
 }

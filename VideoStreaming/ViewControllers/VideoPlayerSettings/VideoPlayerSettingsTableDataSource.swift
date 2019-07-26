@@ -32,7 +32,7 @@ extension VideoPlayerSettingsTableViewController {
         
         let trackType = viewModel.sections[indexPath.section]
         cell.textLabel?.text = viewModel.trackTypes(of: trackType)[indexPath.row]
-        cell.accessoryType = viewModel.selectedIndex(of: trackType) == indexPath.row ? .checkmark : .none
+        cell.accessoryType = viewModel.isSelected(for: indexPath) ? .checkmark : .none
         
         return cell
     }

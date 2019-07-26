@@ -12,6 +12,8 @@ import AVFoundation
 struct VideoPlayerSettingsTableViewModel {
     private let playerItem: AVPlayerItem?
     
+    let indexSubtitleOff = 0
+    
     lazy var sections: [AVPlayerItem.TrackType] = {
         var sections = [AVPlayerItem.TrackType]()
         if self.trackTypes(of: .audio).count > 0 {
@@ -28,11 +30,24 @@ struct VideoPlayerSettingsTableViewModel {
     }
     
     func trackTypes(of type: AVPlayerItem.TrackType) -> [String] {
-        return playerItem?.tracks(type: type) ?? []
+        switch type {
+        case .audio:
+            return playerItem?.tracks(type: type) ?? []
+        case .subtitle:
+            var tracks = (playerItem?.tracks(type: type) ?? [])
+            tracks.insert("Off", at: indexSubtitleOff)
+            return tracks
+        }
     }
     
     func selectedIndex(of type: AVPlayerItem.TrackType) -> Int? {
         guard let selectedIndex = playerItem?.selected(type: type) else { return nil }
         return trackTypes(of: type).firstIndex(of: selectedIndex)
+    }
+    
+    mutating func isSelected(for indexPath: IndexPath) -> Bool {
+        let trackType = sections[indexPath.section]
+        return selectedIndex(of: trackType) == indexPath.row ||
+            (trackType == .subtitle && indexPath.row == indexSubtitleOff && selectedIndex(of: trackType) == nil)
     }
 }

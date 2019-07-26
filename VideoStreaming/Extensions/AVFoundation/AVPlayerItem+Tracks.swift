@@ -10,11 +10,11 @@ import AVFoundation
 
 extension AVPlayerItem {
     enum TrackType {
-        case subtitle
         case audio
+        case subtitle
         
         fileprivate func characteristic(item: AVPlayerItem) -> AVMediaSelectionGroup? {
-            let mediaCharacteristic: AVMediaCharacteristic = self == .subtitle ? .legible : .audible
+            let mediaCharacteristic: AVMediaCharacteristic = self == .audio ? .audible : .legible
             if item.asset.availableMediaCharacteristicsWithMediaSelectionOptions.contains(mediaCharacteristic) {
                 return item.asset.mediaSelectionGroup(forMediaCharacteristic: mediaCharacteristic)
             }
@@ -48,7 +48,7 @@ extension AVPlayerItem {
         
     }
     
-    func select(type:TrackType, name:String) -> Bool {
+    func select(type: TrackType, name: String) -> Bool {
         guard let group = type.characteristic(item: self),
             let matched = group.options.filter({ $0.displayName == name }).first else { return false }
         
@@ -57,4 +57,8 @@ extension AVPlayerItem {
         
     }
     
+    func delete(type: TrackType) {
+        guard let group = type.characteristic(item: self) else { return }
+        self.select(nil, in: group)
+    }
 }

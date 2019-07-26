@@ -11,6 +11,7 @@ import AVFoundation
 
 protocol VideoPlayerSettingsDelegate: class {
     func selected(type: AVPlayerItem.TrackType, name: String, controller: UIViewController?)
+    func deleted(type: AVPlayerItem.TrackType, controller: UIViewController?)
 }
 
 class VideoPlayerSettingsTableViewController: UITableViewController {
