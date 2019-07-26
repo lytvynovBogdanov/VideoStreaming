@@ -50,9 +50,15 @@ extension VideoPlayer: VideoPlayerMenuDelegate {
     func settingsPressed() {
         let videoPlayerSettingsTableViewModel = VideoPlayerSettingsTableViewModel(viewModel.player.currentItem)
         let videoPlayerSettingsTableViewController = VideoPlayerSettingsTableViewController(videoPlayerSettingsTableViewModel)
-        owner?.navigationController?.pushViewController(videoPlayerSettingsTableViewController, animated: true)
+
         videoPlayerSettingsTableViewController.delegate = self
+
         
+        guard let presentationController = AlwaysPresentationPopover.configurePresentation(for: videoPlayerSettingsTableViewController) else { return }
+        presentationController.sourceView = menu.settingsButton
+        presentationController.sourceRect = menu.settingsButton.bounds
+        presentationController.permittedArrowDirections = [.down]
+        owner?.present(videoPlayerSettingsTableViewController, animated: true)
     }
 }
 
