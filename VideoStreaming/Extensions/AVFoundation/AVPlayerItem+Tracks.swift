@@ -23,16 +23,27 @@ extension AVPlayerItem {
     }
     
     func tracks(type: TrackType) -> [String] {
-        if let characteristic = type.characteristic(item: self) {
-            return characteristic.options.map { $0.displayName }
-            
+        
+        guard let characteristic = type.characteristic(item: self) else { return [] }
+        switch type {
+        case .audio:
+            return characteristic.options
+                .map { $0.displayName }
+        case .subtitle:
+            return characteristic.options
+                .filter {
+                    guard let propertyList = $0.propertyList() as? [String: Any] else { return false }
+                    // I think it could be improved
+                    return propertyList.keys.contains("MediaSelectionOptionsDisplaysNonForcedSubtitles")
+                }
+                .map { $0.displayName }
         }
-        return []
     }
     
     func selected(type: TrackType) -> String? {
         guard let group = type.characteristic(item: self) else { return nil }
-        let selected = self.currentMediaSelection.selectedMediaOption(in: group)
+        let selected = currentMediaSelection.selectedMediaOption(in: group)
+        
         return selected?.displayName
         
     }
