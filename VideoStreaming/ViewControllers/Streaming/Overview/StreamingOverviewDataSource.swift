@@ -11,7 +11,6 @@ import UIKit
 extension StreamingOverviewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return viewModel.streamCount
     }
     

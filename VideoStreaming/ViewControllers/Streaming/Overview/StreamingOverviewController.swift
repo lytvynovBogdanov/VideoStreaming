@@ -9,11 +9,5 @@
 import UIKit
 
 class StreamingOverviewController: UITableViewController {
-
     let viewModel = StreamingOverviewModel()
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
 }

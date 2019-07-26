@@ -12,10 +12,10 @@ import AVFoundation
 class VideoPlayer {
     let viewModel: VideoPlayerViewModel
     
-    weak var owner: UIViewController?
-    
     let menu: DefaultPlayerMenu
     let video: DefaultPlayerVideo
+    
+    weak var owner: UIViewController?
     
     init(viewModel: VideoPlayerViewModel, menu: DefaultPlayerMenu, video: DefaultPlayerVideo) {
         self.viewModel = viewModel

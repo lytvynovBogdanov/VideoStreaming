@@ -54,7 +54,6 @@ extension AVPlayerItem {
         
         self.select(matched, in: group)
         return true
-        
     }
     
     func delete(type: TrackType) {
